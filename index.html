@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home-Frankton</title>
+    <script src="js/jq.js"></script>
+    <link rel="icon" href="./images/icon.png" sizes="192x192">
+    <script src="./js/jquery.localScroll.min.js"></script>
+    <script src="./js/jquery.scrollTo.min.js"></script>
+</head>
+<style>
+@keyframes w{  100%{    background-size:100% 3px;  } }
+@keyframes b{  0%{    background-size:100% 3px;  } 100%{    background-size:0% 3px;  } }
+@keyframes but{ 100%{ background-color:#f8dc08;}}
+@keyframes but2{100% {background-color:transparent;border:2px solid #f8dc08;}}
+@keyframes moveit{0%{top:0px;}100%{top:-30px;}}
+@keyframes showit{100%{opacity: 1;}}
+@keyframes title{0%{top:0px;}100%{opacity:1;top:-50px;}}
+@keyframes beyellow{0%{color:#050708;}100%{color:#f8dc08;}}
+body{
+    margin:0;
+}
+#head{
+    width: 92%;
+    min-height: 40px;
+    position: absolute;
+    margin-top: 45px;
+    left: 4%;
+    z-index: 2;
+}
+#logoo{
+    margin:10px 0;
+    width:150px;
+    float:left;
+}
+#allmenu{
+    width:650px;
+    float:right;
+    height:40px;
+    
+}
+#butt{
+    border:1px solid #f8dc08;
+    border-radius:5px;
+    padding:0 10px 0 10px;
+    font-weight: 900;
+    font-family: Frakton-Bold, sans-serif;
+    margin-left:35px;
+    font-size:13px;
+    font-weight: bold;
+    line-height:40px;
+    display:inline-block;
+    cursor: pointer;
+}  
+#butt:hover{
+    animation: but 1s;
+    animation-fill-mode:forwards;
+}
+.word{
+    font-family: Frakton-Bold, sans-serif;
+    margin-left: 21px;
+    font-size:13px;
+    font-weight: bold;
+    line-height:40px;
+    background-image:url("./images/2.png");
+    background-size:0% 3px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 0 8px;
+    display:inline-block;
+    cursor: pointer;
+}
+.word:link{
+    animation: w 0.3s;
+    animation-fill-mode:forwards;
+}
+.word:hover{
+    animation: w 0.3s;
+    animation-fill-mode:forwards;
+}
+
+#main{
+   width:100%;
+}
+#biglogo{
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 0;
+}
+.logoimg{
+    height: 100%;
+    max-width:100%;
+    z-index: -1;
+}
+#main_height{
+    height: 674px;
+}
+#main_text{
+    position:absolute;
+    bottom: 60px;
+    margin: 0 60px;
+}
+#main_text h1{
+    font-family: Frakton-Black, sans-serif;
+    font-size: 63px;
+    line-height: 1;
+    font-weight: 750;
+    letter-spacing: -3px;
+}
+#main_text p{
+    margin-bottom: 45px;
+    font-family: Frakton-Bold, sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+}
+#butt2{
+    background: #f8dc08;
+    font-family: Frakton-Bold, sans-serif;
+    font-size:14px;
+    max-width:140px;
+    padding: 20px 40px;
+    font-weight: 900;
+    cursor: pointer;
+    border: 2px solid transparent;
+}    
+#butt2:hover{
+    animation: but2 .5s;
+    animation-fill-mode:forwards;
+}
+#body{
+    position:relative;
+    width:100%;
+    height: 100%;
+}
+.body_text{
+    vertical-align: top;
+    position: relative;
+    padding: 120px 60px 80px 60px;
+}
+#box{
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    vertical-align: top;
+}
+.h2{
+    max-width: 80%;
+    margin-bottom: 0;
+    margin-top: 0;
+    line-height: 46px;
+    letter-spacing: -3px;
+    font-family: Frakton-Black, sans-serif;
+    font-weight: 750;
+    font-size: 35px;
+}
+.hh2{
+    position:relative;
+    display: block;
+    margin-bottom: 75px;
+    margin-top: 0px;
+    font-family: Frakton-Black, sans-serif;
+    font-size: 60px;
+    letter-spacing: -3px;
+    font-weight: 800;
+    opacity: 0;
+}
+#fourpic{
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+}
+#fourpic1{
+    background-color: white;
+    width: 25%;
+    height: 320px;
+    float: left;
+}
+.nomove:hover .moveit{
+    animation:moveit .5s;
+    animation-fill-mode:forwards;
+    cursor: pointer;
+}
+.moveit{
+    position:relative;
+}
+.nomove:hover .beshow{
+    animation:showit .5s;
+    animation-fill-mode:forwards;
+    cursor: pointer;
+}
+.beshow{
+    opacity: 0;
+    text-align: center;
+    font-size: 14px;
+    font-family: Frakton-Bold, sans-serif;
+    text-transform: uppercase;
+    color: #898a8b;
+}
+#fourpic2{
+    background-color: white;
+    width: 25%;
+    height: 320px;
+    float: left;
+}
+#fourpic3{
+    background-color: white;
+    width: 25%;
+    height: 320px;
+    float: left;
+}
+#fourpic4{
+    background-color: white;
+    width: 25%;
+    height: 320px;
+    float: left;
+}
+#fourpic5{
+    background-color: white;
+    width: 25%;
+    height: 320px;
+    display:inline-block;
+}
+#fourpic6{
+    background-color: white;
+    width: 25%;
+    height: 320px;
+    display:inline-block;
+}
+.picword{
+    width: 70%;
+    margin: 0 auto 30px auto;
+    font-family: Frakton-Bold, sans-serif;
+    font-size: 25px;
+    line-height: 31px;
+    letter-spacing: -.5px;
+    text-align: center;
+}
+#leftright{
+    position: absolute;
+    top: 25px;
+    right: 0;
+}
+#left{
+    margin-right: 25px;
+    width:40px;
+}
+#right{
+    margin-right: 25px;
+    width:40px;
+}
+img{
+    max-width:100%;
+}
+.becenter{
+    margin: 30px 120px 40px 120px;
+}
+#fourgrid{
+    width:100%;
+    background-color: gray;
+    height:100%;
+}
+.grid{
+    width:50%;
+    float:left;
+    margin-bottom: -36px;
+}
+.gridtext{
+    position: relative;
+    left: 20px;
+    bottom: 70px;
+}
+
+.white{
+    font-family: Frakton-Bold, sans-serif;
+    color: white;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+.black{
+    font-family: Frakton-Bold, sans-serif;
+    color: black;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+.threegrid{
+    display: inline-block;
+    position: relative;
+    width: 31%;
+    margin-right: 2%;
+    vertical-align: top;
+}
+.eachgrid{
+    margin-bottom: 20px;
+}
+.smalldiv{
+    font-family: Frakton-black, sans-serif;
+    font-size: 15px;
+    letter-spacing: -.5px;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+h3{
+    max-width: 80%;
+    font-family: Frakton-Bold, sans-serif;
+    font-size: 26px;
+    line-height: 29px;
+    color: #050708;
+    margin: 0;
+}
+.beyellow{
+    max-width: 80%;
+    font-family: Frakton-Bold, sans-serif;
+    font-size: 26px;
+    line-height: 29px;
+    color: #050708;
+    margin: 0;
+    font-weight: 700;
+}
+.beyellow:hover{
+    animation:beyellow 0.1s;
+    animation-fill-mode:forwards;
+    cursor: pointer;
+}
+.bottomline{
+    border-bottom: 1px solid #c7c7c7;
+    width: 85%;
+    margin: 0px auto;
+}
+#fourslide{
+    max-width: 1430px;
+    height: 300px;
+    margin-top: 60px;
+    
+}
+#slide1{
+    text-align: center;
+    max-width: 66%;
+    margin: 0 auto;
+    margin-bottom: 35px;
+    display: flex;
+    position: relative;
+}
+.hh3{
+    max-width: 100%;
+    font-family: Frakton-Black, sans-serif;
+    font-size: 39px;
+    line-height: 41px;
+    color: #050708;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#leftleft{
+    position: absolute;
+    top: 55%;
+    width: 40px;
+}
+#rightright{
+    position: absolute;
+    top: 55%;
+    width: 40px;
+    margin: 0 1360px;
+
+}
+.hh3 span{
+    max-width: 100%;
+    font-family: Frakton-Black, sans-serif;
+    font-size: 39px;
+    line-height: 41px;
+    color: #f8dc08;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.au{
+    font-size: 23px;
+    font-family: Frakton-Bold, sans-serif;
+    color: #f8dc08;
+    text-align: center;
+    margin: 0;
+}
+.com{
+    font-family: Frakton-Medium, sans-serif;
+    font-size: 14px;
+    letter-spacing: -.5px;
+    color: #b2b2b2;
+    text-align: center;
+    margin: 0;
+}
+.foot{
+    margin-bottom: 220px;
+}
+#footer{
+    background-color: #f8dc08;
+    width:100%;
+    height:360px;
+}
+#footer2{
+    background-color: #f8dc08;
+    height:320px;
+    padding: 0 60px;
+}
+#footerpadding{
+    padding: 0 60px;
+}
+#footerblack{
+    background-color: #050708;
+    position:relative;
+    top:-80px;
+    width:100%;
+    background-position: center;
+    padding: 130px 0;
+}
+#story{
+    margin-bottom: 30px;
+    font-family: Frakton-Black, sans-serif;
+    font-size: 50px;
+    line-height: 1;
+    letter-spacing: -.5px;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    margin-top: 0;
+}
+#moreabout{
+    font-family: Frakton-Bold, sans-serif;
+    font-size: 16px;
+    color: #f8dc08;
+    text-transform: uppercase;
+    text-align: center;
+}
+#footeralign{
+    text-align: center;
+}
+#logo{
+    max-width: 120px;
+    margin: 0 auto 60px auto;
+}
+.bottomline2{
+    border-bottom: 1px solid #c9b306;
+    width: 100%;
+    margin: 0px auto;
+}
+.lili{
+    list-style: none;
+    font-family: Frakton-Medium, sans-serif;
+    font-size: 15px;
+    line-height: 10px;
+    padding: 20px 0px;
+    
+}
+li{
+    display: inline-block;
+    width: 24.5%;
+    font-family: Frakton-Medium, sans-serif;
+    font-size: 15px;
+    vertical-align: top;
+}
+</style>
+<body>
+    <div id="head">
+        <div id="logoo">
+            <img src="./images/frakton_logo.svg" alt="" width="150px" >
+        </div>
+        <div id="allmenu">
+            <div class="word">WORK</div>
+            <div class="word">SERVICES</div>
+            <div class="word">CULTURE</div>
+            <div class="word">CAREERS</div>
+            <div class="word">THOUGHTS</div>
+            <div id="butt">CONTACT</div>
+        </div>
+    </div>
+    <div id="main">
+        <div id="main_height">
+                <div id="biglogo">
+                    <img src="./images/biglogo.png" alt="" class="logoimg">
+                </div>
+            <div id="main_text">
+                <h1>WE DEVELOP<br>
+                COMPLEX SOFTWARE</h1>
+                <p>We are a software development company, specialized in<br>
+                    building awesome digital products.</p>
+                <div id="butt2">GET TO KNOW US</div>
+            </div>
+        </div>
+        <div id="body">
+                <div class="body_text">
+                    <h2 class="h2">WE PLAN, BUILD, AND GROW DIGITAL PRODUCTS AND SERVICES THAT HELP COMPANIES BECOME LEADERS IN THEIR INDUSTRY.</h2>
+                </div>
+                <div class="body_text">
+                    <div id="box">
+                    <h2 class="hh2">CAPABILITIES</h2>
+                    <div id="fourpic">
+                        <div class="nomove">
+                            <div id="fourpic1" class="moveit">
+                                <div class="becenter">
+                                    <img src="./images/web.png" alt="">
+                                </div>
+                                <h3 class="picword">Web Solutions</h3>
+                                <div class="beshow">Explore</div>
+                            </div>
+                        </div>
+                        <div class="nomove">
+                            <div id="fourpic2" class="moveit">
+                                <div class="becenter">
+                                    <img src="./images/web2.png" alt="">
+                                </div>
+                                <h3 class="picword">Extended Team Model</h3>
+                                <div class="beshow">Explore</div>
+                            </div>
+                        </div>
+                        <div class="nomove">
+                            <div id="fourpic3" class="moveit">
+                                <div class="becenter">
+                                    <img src="./images/web3.png" alt="">
+                                </div>
+                                <h3 class="picword">Mobile</h3>
+                                <div class="beshow">Explore</div>
+                            </div>
+                        </div>
+                        <div class="nomove">
+                            <div id="fourpic4" class="moveit">
+                                <div class="becenter">
+                                    <img src="./images/web4.png" alt="">
+                                </div>
+                                <h3 class="picword">Products</h3>
+                                <div class="beshow">Explore</div>
+                            </div>
+                        </div>
+                        <div class="nomove">
+                            <div id="fourpic5" class="moveit">
+                                <div class="becenter">
+                                    <img src="./images/web5.png" alt="">
+                                </div>
+                                <h3 class="picword">Websites</h3>
+                                <div class="beshow">Explore</div>
+                            </div>
+                        </div>
+                        <div class="nomove">
+                            <div id="fourpic6" class="moveit">
+                                <div class="becenter">
+                                    <img src="./images/web6.png" alt="">
+                                </div>
+                                <h3 class="picword">Virtual & Augmented Reality</h3>
+                                <div class="beshow">Explore</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="leftright">
+                        <img src="./images/left.png" alt="" id="left">
+                        <img src="./images/right.png" alt="" id="right">
+                    </div>
+                </div>
+            </div>
+            <div class="body_text">
+                <div id="box">
+                    <h2 class="hh2">SELECTED WORKS</h2>
+                    <div id="fourgrid">
+                        <div>
+                            <a href="" class="white">
+                                <div class="grid">
+                                    <img src="./images/grid1.jpg" alt="">
+                                    <div class="gridtext">
+                                        <h3 class="white">TrainAI – AI powered train tickets</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="" class="black">
+                                <div class="grid">
+                                    <img src="./images/grid2.jpg" alt="">
+                                    <div class="gridtext">
+                                        <h3>NewCo by Prosperify</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="" class="black">
+                                <div class="grid">
+                                    <img src="./images/grid3.jpg" alt="">
+                                    <div class="gridtext">
+                                        <h3>Connected Baltics</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        </div>    
+                        <a href="" class="white">
+                            <div class="grid">
+                                <img src="./images/grid4.jpg" alt="">
+                                <div class="gridtext">
+                                    <h3 class="white">Into Albania</h3>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+                    <div class="body_text">
+                        <div id="box">
+                            <h2 class="hh2">OUR THOUGHTS</h2>
+                                <a href="" class="threegrid">
+                                    <div class="eachgrid">
+                                        <img src="./images/grid2-1.jpg" alt="">
+                                    </div>
+                                    <div class="smalldiv">March 27, 2019</div>
+                                    <div class="beyellow">DevOps: The What, the Why, and the How</div>
+                                </a>
+                                <a href="" class="threegrid">
+                                    <div class="eachgrid">
+                                        <img src="./images/grid2-2.jpg" alt="">
+                                    </div>
+                                    <div class="smalldiv">February 20, 2019</div>
+                                    <div class="beyellow">Spring Boot as a choice for enterprise applications</div>
+                                </a>
+                                <a href="" class="threegrid">
+                                    <div class="eachgrid">
+                                        <img src="./images/grid2-3.jpg" alt="">
+                                    </div>
+                                    <div class="smalldiv">January 31, 2019</div>
+                                    <div class="beyellow">What your resume should look like in 2019</div>
+                                </a>
+                        </div>
+                    </div>
+                    <div class="bottomline"></div>
+                    <div class="body_text foot">
+                        <div id="fourslide">
+                            <div id="slide1">
+                                <h3 class="hh3">Together with Frakton we were able to deliver 
+                                    <span>state-of-the-art medical devices</span>
+                                    with a unique User Experience in a record time frame. 
+                                </h3>
+                            </div>
+                            <p class="au">Andreas Lämmerzahl</p>
+                            <p class="com">Executive Director R&D, IBA Dosimetry GmbH</p>
+                            <!-- <div id="slide1">
+                                    <h3 class="hh3">Frakton is the entire tech-department of the 
+                                        <span>Gabee-team in Germany</span>
+                                        . The only thing I miss: we can not have lunch together every day!
+                                    </h3>
+                                </div>
+                                <p class="au">Jochen Pfisterer</p>
+                                <p class="com">CEO, Gabee GmbH</p> -->
+                            <a href="">
+                                <div id="leftleft">
+                                    <img src="./images/left.png" alt="">
+                                </div>
+                            </a>
+                            <a href="">
+                                <div id="rightright">
+                                    <img src="./images/right.png" alt="">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div id="footer">
+             <div id="footerpadding">
+                 <div id="footerblack" style="background-image: url('./images/footer.png')">
+                    <h2 id="story">OUR STORY</h2>
+                    <div id="footeralign">
+                        <a href="" id="moreabout">More about what drives us</a>
+                    </div>
+                 </div>
+             </div>
+        </div>         
+        <div id="footer2">
+             <div id="logo">
+                 <a href="">
+                     <img src="./images/logo.svg" alt="">
+                 </a>
+             </div>
+             <div class="bottomline2"></div>
+             <ul class="lili">
+                <li>
+                    <p>2019 @ Frakton</p> 
+                    <p>All rights Reserved</p>
+                </li>
+                <li>
+                    <a href=""><p>Facebook</p></a>
+                    <a href=""><p>Twitter</p></a>
+                    <a href=""><p>Instagram</p></a>
+                    <a href=""><p>Linkedin</p></a>
+                </li>
+                <li>
+                    <a href=""><p>info@frakton.com</p></a> 
+                    <a href=""><p>+383 49 882 200</p></a>
+                </li>
+                <li>
+                    <p>Office Address</p> 
+                    <p>Sunny Hill, IB - H2/L2,<br></p>
+                    <p>10000, Pristina, Kosovo</p>
+                </li>
+             </ul>
+         </div>
+    </div>
+</body>
+</html>
+<script>
+
+    $(function(){
+			// $("#gotop").click(function(){
+			// 	$("html,body").animate({
+			// 		scrollTop:0
+			// 	});
+			// });
+			$(window).scroll(function(){
+				if ($(this).scrollTop() > 100){
+                    //$(".hh2").animate({top:"-30px",opacity:"1"},3000);
+                    document.getElementsByClassName("hh2")[0].style="animation: title 2s;animation-fill-mode:forwards;";
+                    
+                    //document.getElementsByClassName("hh2")[2].style="animation: title 1s;animation-fill-mode:forwards;";
+                    //document.getElementsByClassName("hh2")[3].style="animation: title 1s;animation-fill-mode:forwards;";
+				 } 
+			});
+            $(window).scroll(function(){
+				if ($(this).scrollTop() > 800){
+                    document.getElementsByClassName("hh2")[1].style="animation: title 2s;animation-fill-mode:forwards;";
+            }
+		    });
+            $(window).scroll(function(){
+				if ($(this).scrollTop() > 1900){
+                    document.getElementsByClassName("hh2")[2].style="animation: title 2s;animation-fill-mode:forwards;";
+                }
+		    });
+    })
+// document.getElementsByClassName("word")[0].onmousemove=function(){
+//     this.style="animation: w 0.3s;animation-fill-mode:forwards;";
+// }
+// document.getElementsByClassName("word")[0].onmouseout=function(){
+//     this.style="animation: b 0.3s;animation-fill-mode:forwards;";
+// }
+    // $(".word").hover(function(){
+    //     $(this).animate({
+    //         "background-size":"100% 3px"
+    //     },3000);
+    // });
+    
+</script>
